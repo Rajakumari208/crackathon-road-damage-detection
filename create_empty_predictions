@@ -1,0 +1,8 @@
+import os
+
+def create_empty_files(image_dir, label_dir):
+    images = [f.replace(".jpg", "") for f in os.listdir(image_dir)]
+    os.makedirs(label_dir, exist_ok=True)
+
+    for img in images:
+        open(os.path.join(label_dir, img + ".txt"), "a").close()
